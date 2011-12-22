@@ -1,0 +1,9 @@
+#rte-button-toggle-fullwindow a span {
+    background: url("img-fullwindow/max.png");
+    background-repeat: no-repeat;
+}
+
+#rte-button-toggle-fullwindow.active a span {
+    background: url("img-fullwindow/min.png");
+    background-repeat: no-repeat;
+}
