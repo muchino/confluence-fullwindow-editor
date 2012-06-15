@@ -7,3 +7,40 @@
     background: url("img-fullwindow/min.png");
     background-repeat: no-repeat;
 }
+
+.fullwindow #splitter #splitter-content{
+    overflow: visible;
+}
+
+.fullwindow #comments-section .comment-body #rte{
+    height: 100%;
+    padding: 0 0 0 8px;
+
+}
+.fullwindow #comments-section .comment-body  form {
+    background-color: #FFFFFF;
+    display: block;
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+.fullwindow #splitter-sidebar,
+.fullwindow .vsplitbar,
+.fullwindow  #footer,
+.fullwindow #theme-footer
+.fullwindow #pagespacer-left,
+.fullwindow #pagespacer-right,
+.fullwindow #sidebar,
+.fullwindow #pageheader,
+.fullwindow #sidebar-start,
+.fullwindow #sidebar-end,
+.fullwindow .labels-gueditor,
+.fullwindow .guPagAttachment ,
+.fullwindow .block-element-header,
+.fullwindow #content .block-element:first-child,
+.fullwindow .comment-user-logo
+{
+    display: none !important;
+
+}

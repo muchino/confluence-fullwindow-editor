@@ -4,6 +4,8 @@
         <description>${project.description}</description>
         <version>${project.version}</version>
         <vendor name="${project.organization.name}" url="${project.organization.url}" />
+        <param name="plugin-icon">img/logo.png</param>
+        <param name="plugin-logo">img/max.png</param>
     </plugin-info>
     <resource name="img-fullwindow/" type="download" location="img/" />
     

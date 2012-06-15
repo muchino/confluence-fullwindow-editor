@@ -14,8 +14,8 @@
  * limitations under the License.
  */
 (function($) {
-    
-    $(document).ready(function() {
+    AJS.bind("init.rte", addFullScreenButton);
+    function addFullScreenButton() {
         var text = "Toggle Fullwindow";
         
         var toolbar = $('#rte-toolbar .toolbar-split-left');
@@ -39,11 +39,18 @@
         .appendTo(fullwindowLink);
             
 
+        var isComment = fullwindowButton.parents('#comments-section').size() > 0;
+
         var active = 'active';
         var showHideElements = $('#header-precursor , #header, #editor-precursor, #savebar-container');
+        var body = $('body');
+        var intervall = null;
         fullwindowLink.click(function(){
             
             if(fullwindowButton.hasClass(active)){
+                // hide full window
+                
+                body.removeClass('fullwindow');
                 fullwindowButton.removeClass(active)
                
                 showHideElements.show();
@@ -63,8 +70,19 @@
                     elem.removeAttr('oldstyle');
                 });
                 
+                if(isComment){
+                    body.removeClass('fullwindow-comment');
+                    $('#comments-section form').removeAttr("style")  ;
+                }
+                if(intervall  != null){
+                    clearInterval(intervall );
+                    jQuery('#wysiwygTextarea_ifr').height(jQuery('#wysiwygTextarea_ifr').contents().find('#tinymce').height());
+                }
+                
             }else {
                 // hide element
+                // full window
+                body.addClass('fullwindow');
                 fullwindowButton.addClass(active)
                 showHideElements.each(function(){
                     var elem = $(this);
@@ -81,6 +99,16 @@
                     
                 });
                 showHideElements.hide().height(0);
+                
+                if(isComment){
+                    body.addClass('fullwindow-comment');
+                    var form = $('#comments-section form');
+                    intervall = setInterval(function(){
+                        var winHeight = $(window).height();
+                        var rteheight = jQuery('#rte-toolbar').outerHeight();
+                        jQuery('#wysiwygTextarea_ifr').css('height', winHeight-rteheight).contents().find('html').css('overflow', 'auto' );        
+                    }, 100);
+                }
             }
             $(window).resize();
            
@@ -99,5 +127,18 @@
             fullwindowLink.click();
         }
     
-    });
+        jQuery(window).resize(function(){
+            if(body.hasClass('fullwindow-comment')){
+                var form = $('#comments-section form');
+                form.css({
+                    'top' : -1*(form.offset().top - form.position().top),
+                    'left' : -1*(form.offset().left - form.position().left),
+                    'height' : $(window).height(),
+                    'width' : $(window).width()
+                });
+            }
+        })
+    
+    }
+    
 })(AJS.$);
