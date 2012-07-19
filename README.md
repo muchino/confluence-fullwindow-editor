@@ -25,3 +25,8 @@ mode.
 ### 1.0
 
 * Initial release
+ 
+## URLs
+
+*  Atlassian Marketplace: https://marketplace.atlassian.com/plugins/confluence.editor.fullwindow
+*  GitHub Pages: http://muchino.github.com/confluence-fullwindow-editor/
