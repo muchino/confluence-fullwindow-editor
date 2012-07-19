@@ -12,7 +12,7 @@ mode.
 ## Releases
 
 ### 1.1.1 
-* Compatibility for a specific custom theme, that instead of the fullwindow editor a blank site occurs.
+* Compatibility for a specific custom theme, where instead of the fullwindow editor a blank site occurs.
 * If  the fullwidth edit mode for a comment is closed, the plugin checks a min height  for the normal editor.
 
 ### 1.1
