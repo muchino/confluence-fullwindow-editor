@@ -76,7 +76,11 @@
                 }
                 if(intervall  != null){
                     clearInterval(intervall );
-                    jQuery('#wysiwygTextarea_ifr').height(jQuery('#wysiwygTextarea_ifr').contents().find('#tinymce').height());
+                    var height = jQuery('#wysiwygTextarea_ifr').contents().find('#tinymce').height();
+                    if(height < 200){
+                        height = 200 ;
+                    }
+                    jQuery('#wysiwygTextarea_ifr').height(height);
                 }
                 
             }else {
