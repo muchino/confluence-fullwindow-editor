@@ -99,7 +99,7 @@ Supports editing pages, blogs and comments in a maximum width and height.
         <atlassian.plugin.key>${project.artifactId}</atlassian.plugin.key>
         <atlassian.product.version>4.0.5</atlassian.product.version>
         <atlassian.product.data.version>3.2</atlassian.product.data.version>
-        <atlassian.pdk.server.url>http://localhost:4000</atlassian.pdk.server.url>
+        <atlassian.pdk.server.url>http://localhost:5000</atlassian.pdk.server.url>
         <atlassian.pdk.server.username>admin</atlassian.pdk.server.username>
         <atlassian.pdk.server.password>admin</atlassian.pdk.server.password>
         <jdkLevel>1.6</jdkLevel>

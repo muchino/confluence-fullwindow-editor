@@ -8,10 +8,23 @@
     background-repeat: no-repeat;
 }
 
+.aui-buttons #rte-button-toggle-fullwindow a span {
+    background-position: center;
+}
+
 .fullwindow-comment #splitter #splitter-content{
     overflow: visible;
 }
+.fullwindow-comment #wysiwyg, 
+.fullwindow-comment #comments-section .comment-body form .editor-container, 
+.fullwindow-comment .fullwindow-comment #comments-section .comment-body #rte,
+.fullwindow-comment #wysiwygTextarea_ifr{
+    height: 100%;
 
+}
+.fullwindow-comment #wysiwygTextarea_ifr{
+    background-color: #fff;
+}
 .fullwindow-comment #comments-section .comment-body #rte{
     height: 100%;
     padding: 0 0 0 8px;
@@ -31,7 +44,7 @@
 .fullwindow-comment .guPagAttachment,
 .fullwindow-comment .block-element-header,
 .fullwindow-comment #content .block-element:first-child,
-.fullwindow-comment .comment-user-logo
+.fullwindow-comment .comment-user-logo,
 .fullwindow-comment .vsplitbar,
 .fullwindow  #footer,
 .fullwindow #theme-footer
@@ -40,7 +53,11 @@
 .fullwindow-comment #sidebar,
 .fullwindow-comment #pageheader,
 .fullwindow-comment #sidebar-start,
-.fullwindow #sidebar-end
+.fullwindow #sidebar-end,
+.fullwindow .ia-splitter-left,
+.fullwindow  #main-content,
+.fullwindow #likes-and-labels-container, 
+.fullwindow-comment #main-header
 {
     display: none !important;
 

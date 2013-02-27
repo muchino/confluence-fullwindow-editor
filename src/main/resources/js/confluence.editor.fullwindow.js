@@ -17,16 +17,26 @@
     AJS.bind("init.rte", addFullScreenButton);
     function addFullScreenButton() {
         var text = "Toggle Fullwindow";
+          
+        var toolbar = $('.aui-toolbar2-primary');
+        var confluence5 = toolbar.size() > 0;
+        if(!confluence5){
+            toolbar = $('#rte-toolbar .toolbar-split-left');   
+        }
         
-        var toolbar = $('#rte-toolbar .toolbar-split-left');
-        var fullwindowGroup = $('<ul></ul>')
-        .addClass('toolbar-group')
-        .attr('id', 'rte-fullwindow-group')
+        var fullwindowGroup = $('<ul></ul>');
+        var fullwindowButton = $('<li></li>');
+        if(confluence5){
+            fullwindowGroup.addClass('aui-buttons');
+            fullwindowButton.addClass('toolbar-item aui-button');
+        }else {
+            fullwindowGroup.addClass('toolbar-group'); 
+            fullwindowButton.addClass('toolbar-item');
+        }
+        fullwindowGroup.attr('id', 'rte-fullwindow-group')
         .appendTo(toolbar);
 
-        var fullwindowButton = $('<li></li>')
-        .addClass('toolbar-item')
-        .attr('id', 'rte-button-toggle-fullwindow')
+        fullwindowButton.attr('id', 'rte-button-toggle-fullwindow')
         .appendTo(fullwindowGroup);
         var fullwindowLink = $('<a></a>')
         .addClass('toolbar-trigger')
@@ -107,11 +117,20 @@
                 if(isComment){
                     body.addClass('fullwindow-comment');
                     var form = $('#comments-section form');
-                    intervall = setInterval(function(){
+                    if(confluence5){
                         var winHeight = $(window).height();
                         var rteheight = jQuery('#rte-toolbar').outerHeight();
-                        jQuery('#wysiwygTextarea_ifr').css('height', winHeight-rteheight).contents().find('html').css('overflow', 'auto' );        
-                    }, 100);
+                        jQuery('.editor-container').contents().find('html').css('overflow', 'auto' );        
+                        $(window).resize();
+                    }else {
+                        intervall = setInterval(function(){
+                            var winHeight = $(window).height();
+                            var rteheight = jQuery('#rte-toolbar').outerHeight();
+                            jQuery('#wysiwygTextarea_ifr').css('height', winHeight-rteheight).contents().find('html').css('overflow', 'auto' );        
+                        }, 100 );
+                    }
+                    
+                    
                 }
             }
             $(window).resize();
@@ -140,6 +159,12 @@
                     'height' : $(window).height(),
                     'width' : $(window).width()
                 });
+                if(confluence5){
+                    $('#wysiwygTextarea_ifr').height('100%');
+                    var winHeight = $(window).height();
+                    var rteheight = jQuery('#rte-toolbar').outerHeight();
+                    jQuery('.editor-container').css('height', winHeight-rteheight);
+                }
             }
         })
     
