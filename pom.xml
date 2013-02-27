@@ -16,7 +16,7 @@
     <description>Adds a button to the toolbar of the editor, to toggle to a full window mode.
 Supports editing pages, blogs and comments in a maximum width and height.
     </description>
-    <version>1.1.1</version>
+    <version>1.2</version>
     <organization>
         <name>Oliver Straesser</name>
     </organization>
@@ -96,7 +96,7 @@ Supports editing pages, blogs and comments in a maximum width and height.
 
     <properties>
         <!-- Confluence version -->
-        <atlassian.plugin.key>${project.artifactId}</atlassian.plugin.key>
+        <atlassian.plugin.key>confluence.editor.fullwindow</atlassian.plugin.key>
         <atlassian.product.version>4.0.5</atlassian.product.version>
         <atlassian.product.data.version>3.2</atlassian.product.data.version>
         <atlassian.pdk.server.url>http://localhost:5000</atlassian.pdk.server.url>
