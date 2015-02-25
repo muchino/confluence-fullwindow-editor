@@ -1,3 +1,5 @@
+THIS REPO MOVED https://bitbucket.org/muchino/confluence-fullwindow-editor
+
 # Fullwindow Editor
 A toggle button for the editor, for a full window mode
 
